@@ -337,8 +337,8 @@ function FieldsForm() {
             required
           >
             <option>Choose..</option>
-            <option>Legal</option>
-            <option>Physical</option>
+            <option>Legal&nbsp;access</option>
+            <option>Physical&nbsp;access</option>
             <option>Both</option>
           </Form.Select>
         </Form.Group>

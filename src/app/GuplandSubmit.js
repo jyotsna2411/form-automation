@@ -50,7 +50,7 @@ const handlePuppeteerTask = async (formdata) => {
   await page.type("#form1_textarea35copyslw4", `${formdata.Sewer}`);
 
   // property access legal
-  await page.click(`input[type="radio"][value=${formdata.Access}]`);
+  await page.click(`input[type="radio"][data-calc-value=${formdata.Access}]`);
   // await page.type("#form1_textarea39", "Additional Details");
   //   await page.click('button[type="submit"]');
 
