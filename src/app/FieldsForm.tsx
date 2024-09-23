@@ -35,6 +35,8 @@ function FieldsForm() {
     Sewer: "",
     Access: "",
     SaleTimeline: "",
+    File: "",
+    AdditionalInfo: "",
   });
   const [validated, set_Validated] = useState(false);
 
@@ -68,7 +70,7 @@ function FieldsForm() {
 
   return (
     <div className={styles.dynamic_form}>
-      <h1>Form Fields</h1>
+      <h1>Gupland Form</h1>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formGridAddress1">
           <Form.Label>Property Address</Form.Label>
@@ -81,37 +83,37 @@ function FieldsForm() {
             required
           />
         </Form.Group>
+        <Row>
+          <Form.Group as={Col} className="mb-3" controlId="formGridAPN">
+            <Form.Label>APN</Form.Label>
+            <Form.Control
+              value={formdata.APN}
+              onChange={handleChange}
+              name="APN"
+              required
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formGridAPN">
-          <Form.Label>APN</Form.Label>
-          <Form.Control
-            value={formdata.APN}
-            onChange={handleChange}
-            name="APN"
-            required
-          />
-        </Form.Group>
+          <Form.Group as={Col} className="mb-3" controlId="formGridCounty">
+            <Form.Label>County</Form.Label>
+            <Form.Control
+              value={formdata.County}
+              onChange={handleChange}
+              name="County"
+              required
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formGridCounty">
-          <Form.Label>County</Form.Label>
-          <Form.Control
-            value={formdata.County}
-            onChange={handleChange}
-            name="County"
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formGridState">
-          <Form.Label>State</Form.Label>
-          <Form.Control
-            value={formdata.State}
-            onChange={handleChange}
-            name="State"
-            required
-          />
-        </Form.Group>
-
+          <Form.Group as={Col} className="mb-3" controlId="formGridState">
+            <Form.Label>State</Form.Label>
+            <Form.Control
+              value={formdata.State}
+              onChange={handleChange}
+              name="State"
+              required
+            />
+          </Form.Group>
+        </Row>
         <Form.Group className="mb-3" controlId="formlinkPropertyWebsite">
           <Form.Label>Link to Property in assessors website</Form.Label>
           <Form.Control
@@ -133,7 +135,7 @@ function FieldsForm() {
             />
           </Form.Group>
 
-          <Form.Group as={Col} controlId="formGridClosingDate">
+          <Form.Group className="mb-3" as={Col} controlId="formGridClosingDate">
             <Form.Label>closing date for acquisition</Form.Label>
             <Form.Control
               value={formdata.ClosingDate}
@@ -144,7 +146,11 @@ function FieldsForm() {
           </Form.Group>
         </Row>
         <Row>
-          <Form.Group as={Col} controlId="formGridAcquisitionCosts">
+          <Form.Group
+            className="mb-3"
+            as={Col}
+            controlId="formGridAcquisitionCosts"
+          >
             <Form.Label>Acquisition costs</Form.Label>
             <Form.Control
               value={formdata.AcquisitionCost}
@@ -153,7 +159,11 @@ function FieldsForm() {
               required
             />
           </Form.Group>
-          <Form.Group as={Col} controlId="formGridAdditionalCosts">
+          <Form.Group
+            className="mb-3"
+            as={Col}
+            controlId="formGridAdditionalCosts"
+          >
             <Form.Label>Additional Costs</Form.Label>
             <Form.Control
               value={formdata.AdditionalCosts}
@@ -162,7 +172,11 @@ function FieldsForm() {
               required
             />
           </Form.Group>
-          <Form.Group as={Col} controlId="formGridEstimatedSalePrice">
+          <Form.Group
+            className="mb-3"
+            as={Col}
+            controlId="formGridEstimatedSalePrice"
+          >
             <Form.Label>Estimated Sale Price</Form.Label>
             <Form.Control
               value={formdata.SalePrice}
@@ -173,7 +187,11 @@ function FieldsForm() {
           </Form.Group>
         </Row>
         <Row>
-          <Form.Group as={Col} controlId="formGridLinkSoldComps">
+          <Form.Group
+            className="mb-3"
+            as={Col}
+            controlId="formGridLinkSoldComps"
+          >
             <Form.Label>Link Sold Comps</Form.Label>
             <Form.Control
               as="textarea"
@@ -185,7 +203,11 @@ function FieldsForm() {
             />
           </Form.Group>
 
-          <Form.Group as={Col} controlId="formGridLinkSaleComps">
+          <Form.Group
+            className="mb-3"
+            as={Col}
+            controlId="formGridLinkSaleComps"
+          >
             <Form.Label>Link Sale Comps</Form.Label>
             <Form.Control
               as="textarea"
@@ -198,7 +220,11 @@ function FieldsForm() {
           </Form.Group>
         </Row>
         <Row>
-          <Form.Group as={Col} controlId="formGridEstimatedClosingCosts">
+          <Form.Group
+            className="mb-3"
+            as={Col}
+            controlId="formGridEstimatedClosingCosts"
+          >
             <Form.Label>Estimated Closing Costs</Form.Label>
             <Form.Control
               value={formdata.ClosingCost}
@@ -207,7 +233,11 @@ function FieldsForm() {
               required
             />
           </Form.Group>
-          <Form.Group as={Col} controlId="formGridEstimatedProfit">
+          <Form.Group
+            className="mb-3"
+            as={Col}
+            controlId="formGridEstimatedProfit"
+          >
             <Form.Label>Estimated Total Profit</Form.Label>
             <Form.Control
               value={formdata.Profit}
@@ -219,7 +249,7 @@ function FieldsForm() {
         </Row>
 
         <Row>
-          <Form.Group as={Col} controlId="formGridRealtorName">
+          <Form.Group className="mb-3" as={Col} controlId="formGridRealtorName">
             <Form.Label>Realtor Name</Form.Label>
             <Form.Control
               value={formdata.RealtorName}
@@ -228,7 +258,11 @@ function FieldsForm() {
               required
             />
           </Form.Group>
-          <Form.Group as={Col} controlId="formGridRealtorContactDetails">
+          <Form.Group
+            className="mb-3"
+            as={Col}
+            controlId="formGridRealtorContactDetails"
+          >
             <Form.Label>Realtor Contact Details</Form.Label>
             <Form.Control
               value={formdata.RealtorContact}
@@ -240,7 +274,7 @@ function FieldsForm() {
         </Row>
 
         <Row>
-          <Form.Group as={Col} controlId="formGridZoning">
+          <Form.Group className="mb-3" as={Col} controlId="formGridZoning">
             <Form.Label>Zoning</Form.Label>
             <Form.Select
               defaultValue="Choose..."
@@ -257,7 +291,7 @@ function FieldsForm() {
               <option>Agricultural</option>
             </Form.Select>
           </Form.Group>
-          <Form.Group as={Col} controlId="formGridBuildable">
+          <Form.Group className="mb-3" as={Col} controlId="formGridBuildable">
             <Form.Label>Is the Property Buildable</Form.Label>
             <Form.Select
               defaultValue="Choose..."
@@ -271,7 +305,11 @@ function FieldsForm() {
               <option>No</option>
             </Form.Select>
           </Form.Group>
-          <Form.Group as={Col} controlId="formGridLandTopography">
+          <Form.Group
+            className="mb-3"
+            as={Col}
+            controlId="formGridLandTopography"
+          >
             <Form.Label>land Topography</Form.Label>
             <Form.Select
               defaultValue="Choose..."
@@ -288,7 +326,7 @@ function FieldsForm() {
           </Form.Group>
         </Row>
 
-        <Form.Group controlId="formGridLotSize">
+        <Form.Group className="mb-3" controlId="formGridLotSize">
           <Form.Label>Lot Size</Form.Label>
           <Form.Control
             value={formdata.LotSize}
@@ -298,7 +336,7 @@ function FieldsForm() {
           />
         </Form.Group>
         <Row>
-          <Form.Group controlId="formGridElectric">
+          <Form.Group className="mb-3" controlId="formGridElectric">
             <Form.Label>Is Electric on the lot?</Form.Label>
             <Form.Control
               value={formdata.Electric}
@@ -307,7 +345,7 @@ function FieldsForm() {
               required
             />
           </Form.Group>
-          <Form.Group controlId="formGridWater">
+          <Form.Group className="mb-3" controlId="formGridWater">
             <Form.Label>Is Water on the lot?</Form.Label>
             <Form.Control
               value={formdata.Water}
@@ -316,7 +354,7 @@ function FieldsForm() {
               required
             />
           </Form.Group>
-          <Form.Group controlId="formGridSewer">
+          <Form.Group className="mb-3" controlId="formGridSewer">
             <Form.Label>Is waste water sewer or spetic?</Form.Label>
             <Form.Control
               value={formdata.Sewer}
@@ -326,7 +364,7 @@ function FieldsForm() {
             />
           </Form.Group>
         </Row>
-        <Form.Group controlId="formGridAccess">
+        <Form.Group className="mb-3" controlId="formGridAccess">
           <Form.Label>
             Does the property have legal and physical access?
           </Form.Label>
@@ -337,12 +375,12 @@ function FieldsForm() {
             required
           >
             <option>Choose..</option>
-            <option>Legal&nbsp;access</option>
-            <option>Physical&nbsp;access</option>
+            <option>Legal access</option>
+            <option>Physical access</option>
             <option>Both</option>
           </Form.Select>
         </Form.Group>
-        <Form.Group as={Col} controlId="formGridSaleTimeline">
+        <Form.Group className="mb-3" as={Col} controlId="formGridSaleTimeline">
           <Form.Label>Estimated Sale Timeline</Form.Label>
           <Form.Control
             as="textarea"
@@ -353,7 +391,37 @@ function FieldsForm() {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit" disabled={!validated}>
+
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Relevant Documents</Form.Label>
+          <Form.Control
+            type="file"
+            value={formdata.File}
+            onChange={handleChange}
+            name="File"
+          />
+        </Form.Group>
+        <Form.Group
+          className="mb-3"
+          as={Col}
+          controlId="formGridAdditionalInfo"
+        >
+          <Form.Label>Additional Information</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            value={formdata.AdditionalInfo}
+            onChange={handleChange}
+            name="AdditionalInfo"
+            required
+          />
+        </Form.Group>
+        <Button
+          className="mb-3"
+          variant="primary"
+          type="submit"
+          disabled={!validated}
+        >
           Submit
         </Button>
       </Form>

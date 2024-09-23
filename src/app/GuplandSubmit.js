@@ -21,8 +21,8 @@ const handlePuppeteerTask = async (formdata) => {
   await page.type("#form1_url10", `${formdata.PropertyWebLink}`);
   //property under contract
   await page.click('input[type="radio"][value="Yes"]');
-  // const fileElement = await page.waitForSelector("#form1_fileupload43");
-  // await fileElement.uploadFile(["./path-to-local-file"]);
+  const fileElement = await page.waitForSelector('input[type="file"]');
+  await fileElement.uploadFile(`${formdata.File}`);
   await page.type("#form1_text12", `${formdata.ContractPrice}`);
   await page.type("#form1_text7", `${formdata.ClosingDate}`);
   await page.type("#form1_text16", `${formdata.AcquisitionCost}`);
@@ -43,25 +43,19 @@ const handlePuppeteerTask = async (formdata) => {
   await page.click(`input[type="radio"][value=${formdata.Buildable}]`);
   // land topography flat
 
-  await page.click(`input[type="radio"][value=Flat]`);
+  await page.click(`input[type="radio"][value="${formdata.Topography}"]`);
   await page.type("#form1_text32", `${formdata.LotSize}`);
   await page.type("#form1_textarea35", `${formdata.Electric}`);
   await page.type("#form1_textarea35copyslw4copyxdn0", `${formdata.Water}`);
   await page.type("#form1_textarea35copyslw4", `${formdata.Sewer}`);
 
   // property access legal
-  await page.click(`input[type="radio"][data-calc-value=${formdata.Access}]`);
-  // await page.type("#form1_textarea39", "Additional Details");
-  //   await page.click('button[type="submit"]');
+  await page.click(`input[type="radio"][value="${formdata.Access}"]`);
+  await page.type("#form1_textarea39", `${formdata.AdditionalInfo}`);
+  await page.click('button[type="submit"]');
 
-  // Wait for the page to load after submission
-  //   await page.waitForNavigation();
-
-  //   // Do something with the response, if necessary
-  //   const response = await page.evaluate(
-  //     () => document.querySelector(".success-message").textContent
-  //   );
-  //   console.log(response);
+  //Wait for the page to load after submission
+  await page.waitForNavigation();
 
   await browser.close();
 };
