@@ -20,7 +20,7 @@ app.post("/trigger-puppeteer", async (req, res) => {
     await handlePuppeteerTask(formData);
     res.set("Content-Disposition", "attachment; filename=example.pdf");
     res.set("Content-Type", "application/json");
-    res.status(200).send("function triggered");
+    res.status(200).send("Form Submitted Successfully");
   } catch (err) {
     console.error(err);
     res.status(500).send("Error triggering Puppeteer");

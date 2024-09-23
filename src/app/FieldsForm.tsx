@@ -39,6 +39,7 @@ function FieldsForm() {
     AdditionalInfo: "",
   });
   const [validated, set_Validated] = useState(false);
+  const [response, setresponse] = useState("");
 
   useEffect(() => {
     const hasNoEmptyValues = Object.values(formdata).every(
@@ -61,7 +62,7 @@ function FieldsForm() {
         formData: formdata,
       })
       .then((res) => {
-        console.log(res.data);
+        setresponse(res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -424,6 +425,8 @@ function FieldsForm() {
         >
           Submit
         </Button>
+
+        <p className="mb-3">{response}</p>
       </Form>
     </div>
   );
